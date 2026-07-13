@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Falando Pernambucano — Phrasebook for the Brazil Build Team</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#26211C; --paper:#FFFFFF; --soft:#F6F3EE; --line:#E5DFD6;
+  --cobalt:#2456A6; --coral:#D94F3D; --mango:#E8A21D; --palm:#3E7C59;
+  --muted:#7A7066;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Public Sans',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+a{color:var(--cobalt)}
+
+header{background:var(--ink);color:#fff;padding:40px 0 0}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--mango);font-weight:700}
+h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(30px,5.5vw,50px);line-height:1.05;margin:10px 0 8px}
+.sub{color:#D8CFC4;font-size:15px;max-width:640px;padding-bottom:30px}
+
+nav{background:var(--ink);position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 20px 0;max-width:880px;margin:0 auto}
+.tab{flex:0 0 auto;border:none;cursor:pointer;font-family:'Public Sans',sans-serif;font-weight:700;font-size:13px;
+  color:#fff;padding:10px 15px 12px;border-radius:10px 10px 0 0;position:relative;opacity:.62;transition:opacity .15s,transform .15s}
+.tab::before{content:"";position:absolute;left:50%;top:-7px;transform:translateX(-50%);
+  border-left:11px solid transparent;border-right:11px solid transparent;border-bottom:8px solid currentColor;opacity:0}
+.tab.active{opacity:1;transform:translateY(-2px)}
+.tab.active::before{opacity:1}
+.t1{background:var(--cobalt)}.t1::before{color:var(--cobalt)}
+.t2{background:var(--coral)}.t2::before{color:var(--coral)}
+.t3{background:var(--mango);color:var(--ink)}.t3::before{color:var(--mango)}
+.t4{background:var(--palm)}.t4::before{color:var(--palm)}
+.t5{background:#7A5AA8}.t5::before{color:#7A5AA8}
+
+.panel{display:none;padding:34px 0 60px}
+.panel.show{display:block}
+h2{font-family:'Fraunces',serif;font-weight:600;font-size:27px;margin-bottom:6px}
+h3{font-family:'Fraunces',serif;font-weight:600;font-size:18px;margin:26px 0 10px;color:var(--ink)}
+.lede{color:var(--muted);font-size:15px;margin-bottom:22px;max-width:660px}
+
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);align-items:start}
+.row:last-child{border-bottom:none}
+.pt{font-weight:700;font-size:16px;color:var(--ink)}
+.say{font-size:12.5px;color:var(--coral);font-weight:600;letter-spacing:.02em;margin-top:1px}
+.en{font-size:14.5px;color:#4A443D}
+.gloss{font-size:12.5px;color:var(--muted);margin-top:3px}
+.star{display:inline-block;background:#FCF2DC;color:#9A6B0B;font-size:10px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;border-radius:4px;padding:2px 6px;margin-left:6px;vertical-align:2px}
+.warn{background:#FBEAE7;color:var(--coral)}
+
+.note{background:var(--soft);border-radius:12px;padding:16px 18px;font-size:14px;color:#4A443D;margin:20px 0}
+.note b{color:var(--ink)}
+.danger{background:#FBEAE7;border-left:4px solid var(--coral)}
+ul.tips{list-style:none;margin-top:8px}
+ul.tips li{padding:9px 0 9px 24px;border-bottom:1px dashed var(--line);font-size:14.5px;position:relative}
+ul.tips li::before{content:"";position:absolute;left:3px;top:16px;width:9px;height:9px;border-radius:50%;background:var(--palm)}
+ul.tips li:last-child{border-bottom:none}
+footer{background:var(--soft);padding:24px 0;font-size:13px;color:var(--muted)}
+footer b{color:var(--ink)}
+@media (max-width:600px){.row{grid-template-columns:1fr;gap:4px}}
+@media print{nav{display:none}.panel{display:block!important;padding:16px 0}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Habitat for Humanity Global Village · Brazil 2026</div>
+    <h1>Falando Pernambucano</h1>
+    <p class="sub">The Northeast doesn't speak the Portuguese you hear in movies. Recife and the sertão have their own words, their own music, their own way of landing a joke. You don't need to be fluent — you need about eight of these. Use one correctly and you'll watch a face light up.</p>
+  </div>
+</header>
+
+<nav>
+  <div class="tabs">
+    <button class="tab t1 active" data-panel="p1">Start Here</button>
+    <button class="tab t2" data-panel="p2">Pure Nordeste</button>
+    <button class="tab t3" data-panel="p3">On the Build Site</button>
+    <button class="tab t4" data-panel="p4">Food &amp; Table</button>
+    <button class="tab t5" data-panel="p5">Culture &amp; Cautions</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ============ START HERE ============ -->
+<section id="p1" class="panel show">
+  <h2>The essential eight</h2>
+  <p class="lede">If you learn nothing else, learn these. Pronunciation is written the way an English speaker should say it — stressed syllable in CAPS.</p>
+
+  <div class="row"><div><div class="pt">Bom dia / Boa tarde / Boa noite</div><div class="say">bohn JEE-ah · BOH-ah TAR-jee · BOH-ah NOY-chee</div></div>
+    <div><div class="en">Good morning / afternoon / evening</div><div class="gloss">Say it to everyone — entering a room, passing on the street, arriving at the site. Not saying it reads as cold.</div></div></div>
+
+  <div class="row"><div><div class="pt">Tudo bem? / Tudo bom?</div><div class="say">TOO-doo BENG</div></div>
+    <div><div class="en">All good? — the universal greeting</div><div class="gloss">Answer is the same words back: "Tudo bem!" It's a greeting, not a real question.</div></div></div>
+
+  <div class="row"><div><div class="pt">Obrigado <span style="font-weight:400;color:var(--muted)">(men)</span> / Obrigada <span style="font-weight:400;color:var(--muted)">(women)</span></div><div class="say">oh-bree-GAH-doo / oh-bree-GAH-dah</div></div>
+    <div><div class="en">Thank you</div><div class="gloss">You match the ending to <i>your own</i> gender, not the other person's. This trips up every English speaker once.</div></div></div>
+
+  <div class="row"><div><div class="pt">Por favor</div><div class="say">poor fah-VOR</div></div>
+    <div><div class="en">Please</div></div></div>
+
+  <div class="row"><div><div class="pt">Com licença</div><div class="say">kong lee-SEN-sah</div></div>
+    <div><div class="en">Excuse me / pardon me</div><div class="gloss">Use it to squeeze past someone, enter a home, or get attention politely.</div></div></div>
+
+  <div class="row"><div><div class="pt">Desculpa</div><div class="say">jees-KOOL-pah</div></div>
+    <div><div class="en">Sorry</div></div></div>
+
+  <div class="row"><div><div class="pt">Não entendi</div><div class="say">nowng en-ten-JEE</div></div>
+    <div><div class="en">I didn't understand</div><div class="gloss">Follow with: <b>"Mais devagar, por favor"</b> (mice deh-vah-GAR) — "slower, please." You will use this daily.</div></div></div>
+
+  <div class="row"><div><div class="pt">Prazer!</div><div class="say">prah-ZEHR</div></div>
+    <div><div class="en">Pleasure — nice to meet you</div><div class="gloss">Say it with the handshake or cheek kiss when meeting the families.</div></div></div>
+
+  <h3>Introducing yourself</h3>
+  <div class="row"><div><div class="pt">Meu nome é ______.</div><div class="say">MEH-oo NOH-mee eh</div></div><div><div class="en">My name is ______.</div></div></div>
+  <div class="row"><div><div class="pt">Sou dos Estados Unidos.</div><div class="say">soh dohz es-TAH-dooz oo-NEE-dooz</div></div><div><div class="en">I'm from the United States.</div></div></div>
+  <div class="row"><div><div class="pt">Falo pouco português. Desculpe!</div><div class="say">FAH-loo POH-koo por-too-GEHZ</div></div><div><div class="en">I speak a little Portuguese. Sorry!</div><div class="gloss">Say this early and often. It buys enormous goodwill — people slow down and help you.</div></div></div>
+  <div class="row"><div><div class="pt">Estou aqui com a Habitat.</div><div class="say">es-TOH ah-KEE kong ah</div></div><div><div class="en">I'm here with Habitat.</div></div></div>
+</section>
+
+<!-- ============ PURE NORDESTE ============ -->
+<section id="p2" class="panel">
+  <h2>Pure Nordeste — the local flavor</h2>
+  <p class="lede">This is the good stuff. These words mark you as someone who bothered to learn <i>their</i> Portuguese, not the Rio version. Use them lightly and with a smile — you're borrowing, not performing.</p>
+
+  <div class="row"><div><div class="pt">Visse?<span class="star">Recife's signature</span></div><div class="say">VEE-see</div></div>
+    <div><div class="en">Got it? / Right? / You know?</div><div class="gloss">Tacked onto the end of sentences constantly in Recife. It's the single most Recife-identifying word there is. "Tá quente hoje, visse?"</div></div></div>
+
+  <div class="row"><div><div class="pt">Oxe! / Oxente!<span class="star">Top 3</span></div><div class="say">OH-shee / oh-SHEN-chee</div></div>
+    <div><div class="en">Whoa! / Huh?! / What on earth?</div><div class="gloss">All-purpose expression of surprise, confusion, or mild outrage. Northeastern to the bone. Drop a well-timed "Oxe!" and people will laugh out loud.</div></div></div>
+
+  <div class="row"><div><div class="pt">Arretado / Arretada<span class="star">Top 3</span></div><div class="say">ah-heh-TAH-doo</div></div>
+    <div><div class="en">Awesome, excellent, terrific</div><div class="gloss">The Northeast's word for "great." A meal, a person, a day can all be <i>arretado</i>. Intensify it: <b>"arretado da peste"</b> = seriously fantastic.</div></div></div>
+
+  <div class="row"><div><div class="pt">Massa</div><div class="say">MAH-sah</div></div>
+    <div><div class="en">Cool / nice / awesome</div><div class="gloss">Heavily used in Recife. Confusingly, <i>massa</i> also means the mortar you'll be mixing on site. Context sorts it out.</div></div></div>
+
+  <div class="row"><div><div class="pt">Eita!</div><div class="say">AY-tah</div></div>
+    <div><div class="en">Wow! / Yikes! / Oh boy!</div><div class="gloss">Reaction to anything sudden. Bigger version: <b>"Eita, gota serena!"</b> — a classic Northeastern exclamation with no clean translation.</div></div></div>
+
+  <div class="row"><div><div class="pt">Vixe! / Vixe Maria!</div><div class="say">VEE-shee</div></div>
+    <div><div class="en">Oh my! / Oh no!</div><div class="gloss">For bad news, near-misses, or dramatic sympathy. Pairs well with a hand on the chest.</div></div></div>
+
+  <div class="row"><div><div class="pt">Aperreado</div><div class="say">ah-peh-hee-AH-doo</div></div>
+    <div><div class="en">Stressed, bothered, hassled</div><div class="gloss">Deeply Northeastern. "Tô aperreado" = I'm stressed out. Locals find it delightful when a foreigner uses this one right.</div></div></div>
+
+  <div class="row"><div><div class="pt">Bora!</div><div class="say">BOH-rah</div></div>
+    <div><div class="en">Let's go! / Come on!</div><div class="gloss">Short for "vamos embora." Perfect for rallying the crew back to work after lunch. <b>"Bora trabalhar!"</b> = Let's get to work!</div></div></div>
+
+  <div class="row"><div><div class="pt">Danado / Danada</div><div class="say">dah-NAH-doo</div></div>
+    <div><div class="en">Clever, sharp — or mischievous</div><div class="gloss">A compliment for a quick kid or a skilled worker. "Esse cabra é danado!"</div></div></div>
+
+  <div class="row"><div><div class="pt">Cabra da peste</div><div class="say">KAH-brah dah PES-chee</div></div>
+    <div><div class="en">A tough, admirable guy — a real character</div><div class="gloss">Sounds like an insult, is actually high praise in the Northeast. A term of rugged respect.</div></div></div>
+
+  <div class="row"><div><div class="pt">Painho / Mainha</div><div class="say">PIE-nyoo / MY-nyah</div></div>
+    <div><div class="en">Dad / Mom</div><div class="gloss">The Northeastern words for parents — you'll hear kids on site using them constantly.</div></div></div>
+
+  <div class="row"><div><div class="pt">Pense num calor!</div><div class="say">PEN-see noong kah-LOR</div></div>
+    <div><div class="en">"Imagine such heat!" — i.e., it's brutally hot</div><div class="gloss">The "pense num..." construction is pure Nordeste and you can plug anything into it. You will have cause to use this one.</div></div></div>
+
+  <div class="row"><div><div class="pt">Água!</div><div class="say">AH-gwah</div></div>
+    <div><div class="en">Water!</div><div class="gloss">Not slang — but in that heat it may be your most-used word. <b>"Tô com sede"</b> (toh kong SEH-jee) = I'm thirsty.</div></div></div>
+</section>
+
+<!-- ============ BUILD SITE ============ -->
+<section id="p3" class="panel">
+  <h2>On the build site</h2>
+  <p class="lede">You'll be working alongside masons (<i>pedreiros</i>) and family members. Nobody expects you to be fluent — but knowing the name of the thing you're being handed makes the whole day flow better.</p>
+
+  <h3>The tools and materials</h3>
+  <div class="row"><div><div class="pt">Tijolo</div><div class="say">tee-ZHOH-loo</div></div><div><div class="en">Brick</div></div></div>
+  <div class="row"><div><div class="pt">Massa / Argamassa</div><div class="say">MAH-sah / ar-gah-MAH-sah</div></div><div><div class="en">Mortar / cement mix</div></div></div>
+  <div class="row"><div><div class="pt">Cimento · Areia · Água</div><div class="say">see-MEN-too · ah-RAY-ah · AH-gwah</div></div><div><div class="en">Cement · sand · water</div></div></div>
+  <div class="row"><div><div class="pt">Colher de pedreiro</div><div class="say">koh-LYEHR jee peh-DRAY-roo</div></div><div><div class="en">Trowel</div></div></div>
+  <div class="row"><div><div class="pt">Balde · Pá · Enxada</div><div class="say">BAHL-jee · pah · en-SHAH-dah</div></div><div><div class="en">Bucket · shovel · hoe</div></div></div>
+  <div class="row"><div><div class="pt">Carrinho de mão</div><div class="say">kah-HEE-nyoo jee MOWNG</div></div><div><div class="en">Wheelbarrow</div></div></div>
+  <div class="row"><div><div class="pt">Pedreiro / Mestre</div><div class="say">peh-DRAY-roo / MES-tree</div></div><div><div class="en">Mason / master builder</div><div class="gloss">Calling the lead mason <b>"Mestre"</b> is a sign of real respect. Use it.</div></div></div>
+
+  <h3>Working phrases</h3>
+  <div class="row"><div><div class="pt">Como posso ajudar?</div><div class="say">KOH-moo POH-soo ah-zhoo-DAR</div></div><div><div class="en">How can I help?</div><div class="gloss">Your best opening line every morning.</div></div></div>
+  <div class="row"><div><div class="pt">Assim está bom?</div><div class="say">ah-SEENG es-TAH bohng</div></div><div><div class="en">Is it good like this?</div><div class="gloss">Point at your work and say it. Solves 90% of the language barrier.</div></div></div>
+  <div class="row"><div><div class="pt">Me mostra, por favor?</div><div class="say">mee MOHS-trah</div></div><div><div class="en">Can you show me, please?</div></div></div>
+  <div class="row"><div><div class="pt">Cuidado!</div><div class="say">kwee-DAH-doo</div></div><div><div class="en">Careful! / Watch out!</div></div></div>
+  <div class="row"><div><div class="pt">Devagar · Pesado · Pronto</div><div class="say">deh-vah-GAR · peh-ZAH-doo · PRON-too</div></div><div><div class="en">Slowly · heavy · done/ready</div></div></div>
+  <div class="row"><div><div class="pt">Mais um?</div><div class="say">mice oong</div></div><div><div class="en">One more?</div></div></div>
+  <div class="row"><div><div class="pt">Preciso de uma pausa.</div><div class="say">preh-SEE-zoo jee OO-mah POW-zah</div></div><div><div class="en">I need a break.</div><div class="gloss">Say it without shame. In that heat, everyone takes them.</div></div></div>
+
+  <h3>To the families — the ones that matter most</h3>
+  <div class="row"><div><div class="pt">Obrigado por nos receber.</div><div class="say">oh-bree-GAH-doo poor nohz heh-seh-BEHR</div></div><div><div class="en">Thank you for receiving us.</div></div></div>
+  <div class="row"><div><div class="pt">Estamos muito felizes de estar aqui.</div><div class="say">es-TAH-mooz MOO-ee-too feh-LEE-zeez</div></div><div><div class="en">We're very happy to be here.</div></div></div>
+  <div class="row"><div><div class="pt">Sua casa vai ficar linda.</div><div class="say">SOO-ah KAH-zah vye fee-KAR LEEN-dah</div></div><div><div class="en">Your house is going to be beautiful.</div></div></div>
+  <div class="row"><div><div class="pt">É uma honra trabalhar com você.</div><div class="say">eh OO-mah OHN-rah trah-bah-LYAR</div></div><div><div class="en">It's an honor to work with you.</div></div></div>
+  <div class="row"><div><div class="pt">Posso tirar uma foto?</div><div class="say">POH-soo chee-RAR OO-mah FOH-too</div></div><div><div class="en">May I take a photo?</div><div class="gloss">Always ask. Always. Especially with children — and follow whatever Habitat's safeguarding briefing tells you.</div></div></div>
+</section>
+
+<!-- ============ FOOD ============ -->
+<section id="p4" class="panel">
+  <h2>Food &amp; the table</h2>
+  <p class="lede">We'll be eating lunch in family homes. Complimenting the food is the fastest relationship-builder available to you — and Pernambuco's kitchen is worth complimenting.</p>
+
+  <h3>Say this at the table</h3>
+  <div class="row"><div><div class="pt">Está muito gostoso!</div><div class="say">es-TAH MOO-ee-too gohs-TOH-zoo</div></div><div><div class="en">This is delicious!</div><div class="gloss">The single highest-value sentence in this entire document.</div></div></div>
+  <div class="row"><div><div class="pt">Está uma delícia!</div><div class="say">es-TAH OO-mah deh-LEE-see-ah</div></div><div><div class="en">It's a delight!</div></div></div>
+  <div class="row"><div><div class="pt">Quem cozinhou? Parabéns!</div><div class="say">kayng koh-zee-NYOH · pah-rah-BENGZ</div></div><div><div class="en">Who cooked? Congratulations!</div><div class="gloss">Watch what this does to a room.</div></div></div>
+  <div class="row"><div><div class="pt">Estou satisfeito / satisfeita.</div><div class="say">es-TOH sah-chees-FAY-too</div></div><div><div class="en">I'm full (satisfied).</div><div class="gloss">The polite way to stop the third helping. Saying "estou cheio" (I'm stuffed) is blunter.</div></div></div>
+  <div class="row"><div><div class="pt">Só um pouquinho, por favor.</div><div class="say">soh oong poh-KEE-nyoo</div></div><div><div class="en">Just a little bit, please.</div></div></div>
+  <div class="row"><div><div class="pt">Sem pimenta, por favor.</div><div class="say">sayng pee-MEN-tah</div></div><div><div class="en">No chili/pepper, please.</div></div></div>
+  <div class="row"><div><div class="pt">Sou vegetariano / vegetariana.</div><div class="say">soh veh-zheh-tah-ree-AH-noo</div></div><div><div class="en">I'm vegetarian.</div><div class="gloss">Be prepared for this to cause genuine confusion in the interior. Flag dietary needs to Habitat in advance.</div></div></div>
+  <div class="row"><div><div class="pt">Saúde! / Tim-tim!</div><div class="say">sah-OO-jee / cheeng-CHEENG</div></div><div><div class="en">Cheers! (toasting)</div></div></div>
+
+  <h3>What's on the plate</h3>
+  <div class="row"><div><div class="pt">Carne de sol</div><div class="say">KAR-nee jee sohl</div></div><div><div class="en">Sun-dried salted beef — the regional signature</div></div></div>
+  <div class="row"><div><div class="pt">Macaxeira</div><div class="say">mah-kah-SHAY-rah</div></div><div><div class="en">Cassava / yuca</div><div class="gloss">In the south they say <i>mandioca</i> or <i>aipim</i>. Up here it's <i>macaxeira</i> — using the local word is a small, noticed thing.</div></div></div>
+  <div class="row"><div><div class="pt">Queijo coalho</div><div class="say">KAY-zhoo KWAH-lyoo</div></div><div><div class="en">Squeaky grilling cheese, often on a stick</div></div></div>
+  <div class="row"><div><div class="pt">Cuscuz</div><div class="say">koos-KOOZ</div></div><div><div class="en">Steamed corn meal — a breakfast staple (not Moroccan couscous)</div></div></div>
+  <div class="row"><div><div class="pt">Tapioca</div><div class="say">tah-pee-OH-kah</div></div><div><div class="en">Cassava-starch crepe, stuffed sweet or savory</div></div></div>
+  <div class="row"><div><div class="pt">Bode</div><div class="say">BOH-jee</div></div><div><div class="en">Goat — a proud specialty of the interior</div></div></div>
+  <div class="row"><div><div class="pt">Bolo de rolo</div><div class="say">BOH-loo jee HOH-loo</div></div><div><div class="en">Pernambuco's paper-thin rolled guava cake — an official state treasure</div></div></div>
+  <div class="row"><div><div class="pt">Cartola</div><div class="say">kar-TOH-lah</div></div><div><div class="en">Fried banana with cheese, sugar and cinnamon — order it once</div></div></div>
+  <div class="row"><div><div class="pt">Uma gelada</div><div class="say">OO-mah zheh-LAH-dah</div></div><div><div class="en">"A cold one" — a cold beer</div></div></div>
+  <div class="row"><div><div class="pt">A conta, por favor.</div><div class="say">ah KOHN-tah</div></div><div><div class="en">The check, please.</div></div></div>
+</section>
+
+<!-- ============ CULTURE & CAUTIONS ============ -->
+<section id="p5" class="panel">
+  <h2>Culture &amp; cautions</h2>
+
+  <div class="note danger">
+    <b>⚠️ The one word you must never use: <i>rapariga</i>.</b><br>
+    In Portugal and in your phrasebook app, <i>rapariga</i> simply means "girl." <b>In the Northeast of Brazil it means prostitute.</b> It is a serious insult. Use <b>menina</b> (meh-NEE-nah) for a girl, <b>moça</b> (MOH-sah) for a young woman, <b>mulher</b> (moo-LYEHR) for a woman. Tell every member of the team.
+  </div>
+
+  <div class="note">
+    <b>A few more to handle with care.</b> <i>Abestado</i> (dopey/foolish) and <i>mangar</i> (to mock) are affectionate between friends but sting from a stranger — understand them, don't deploy them. And skip <i>égua</i> — that's Belém, not Recife, and using it here marks you as someone who learned Brazil from the internet.
+  </div>
+
+  <h3>How people greet</h3>
+  <ul class="tips">
+    <li><b>Cheek kisses.</b> Women greet women and men with a light cheek-touch kiss — typically two in Recife, right cheek first. Men greet men with a handshake, often with a shoulder clasp or a hug if there's warmth. Follow the other person's lead; nobody will be offended if you hesitate.</li>
+    <li><b>Physical closeness is normal.</b> Standing near, touching an arm while talking, extended eye contact — this is friendliness, not intrusion. Backing away reads as coldness.</li>
+    <li><b>Greet the room, not the group.</b> Walking into a home or a work site, people greet each person individually. It takes an extra minute and it matters enormously.</li>
+    <li><b>The OK hand sign (thumb + forefinger circle) is obscene in Brazil.</b> Use a thumbs-up instead — that one's universal and beloved here.</li>
+    <li><b>"Sim" is rarely used alone.</b> To say yes, Brazilians usually repeat the verb: "Você gostou?" → "Gostei!" Don't worry about mastering this; just know that a plain "sim" sounds a bit clipped.</li>
+  </ul>
+
+  <h3>The music you'll hear — know the names</h3>
+  <ul class="tips">
+    <li><b>Frevo</b> (FREH-voo) — Recife's frantic, brass-driven carnival music and its acrobatic umbrella dance. The city's pride.</li>
+    <li><b>Maracatu</b> (mah-rah-kah-TOO) — thunderous Afro-Brazilian drum processions with royal courts and costumes. This is what you'll hear on Black Consciousness Day.</li>
+    <li><b>Forró</b> (foh-HOH) — accordion, triangle, zabumba drum; the dance music of the interior. If someone pulls you up to dance, say yes. You'll be bad at it. That's the point.</li>
+    <li><b>Ciranda</b> and <b>coco</b> — circle dances of the coast and countryside. Anyone can join a ciranda; you just hold hands and step.</li>
+  </ul>
+
+  <h3>Three things that will carry you further than vocabulary</h3>
+  <ul class="tips">
+    <li><b>Try, badly, out loud.</b> Northeasterners are famously warm toward people who make the attempt. Perfect silence reads as aloofness; a botched "Oxe!" reads as affection.</li>
+    <li><b>Learn and use names.</b> Ask <b>"Como é seu nome?"</b> (KOH-moo eh seh-oo NOH-mee) and then actually use it. On a build site, being called by name is being seen.</li>
+    <li><b>Let them feed you.</b> Refusing food or drink in a home is a bigger deal than any grammatical error you could possibly make.</li>
+  </ul>
+
+  <div class="note" style="margin-top:24px"><b>Cheat sheet, if you remember nothing else:</b> Bom dia · Tudo bem? · Obrigado/a · Por favor · Está muito gostoso! · Como posso ajudar? · Oxe! · Arretado!</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>Habitat for Humanity Global Village — Brazil 2026 · Caruaru, Pernambuco</b><br>
+    Questions: Jonathan · <a href="mailto:jonathan@kingcretot.com">jonathan@kingcretot.com</a> · 954.336.9905
+  </div>
+</footer>
+
+<script>
+const tabs=document.querySelectorAll('.tab'),panels=document.querySelectorAll('.panel');
+tabs.forEach(t=>t.addEventListener('click',()=>{
+  tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');
+  panels.forEach(p=>p.classList.remove('show'));
+  document.getElementById(t.dataset.panel).classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}));
+</script>
+</body>
+</html>
